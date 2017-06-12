@@ -5,10 +5,13 @@ language: python
 python:
   - "3.5"
 
+services:
+  - docker
+  
 before_install:
-  - dpkg -l
-  - sudo apt-get remove mysql postgres -y
   - env
+  - docker info
+  - docker version
   - df -h
   - mount
   - cat /proc/meminfo
