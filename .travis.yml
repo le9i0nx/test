@@ -1,0 +1,28 @@
+---
+
+sudo: True
+language: 'python'
+python: '2.7'
+services:
+  - docker
+
+virtualenv:
+    system_site_packages: true
+
+before_install:
+  - env
+  - docker info
+  - docker version
+  - df -h
+  - mount
+  - cat /proc/meminfo
+  - cat /proc/cpuinfo
+  - ip address
+  - ip route
+  - uname -a
+
+script:
+  - sleep 1
+
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
