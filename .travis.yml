@@ -3,16 +3,12 @@
 sudo: True
 language: 'python'
 python: '2.7'
-services:
-  - docker
 
 virtualenv:
     system_site_packages: true
 
 before_install:
   - env
-  - docker info
-  - docker version
   - df -h
   - mount
   - cat /proc/meminfo
@@ -20,6 +16,8 @@ before_install:
   - ip address
   - ip route
   - uname -a
+  - ps aufx
+  - pstree -up
 
 script:
   - sleep 1
