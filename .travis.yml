@@ -9,6 +9,9 @@ services:
   - docker
   
 before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq openvpn
+  - ls -la /etc/openvpn/
   - env
   - docker info
   - docker version
