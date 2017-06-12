@@ -1,9 +1,13 @@
 ---
 
 sudo: required
-language: c
+language: python
+python:
+  - "3.5"
 
 before_install:
+  - dpkg -l
+  - sudo apt-get remove mysql postgres -y
   - env
   - df -h
   - mount
