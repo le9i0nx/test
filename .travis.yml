@@ -14,11 +14,11 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq openvpn
   - sudo openssl aes-256-cbc -K $encrypted_f78bf4900bc1_key -iv $encrypted_f78bf4900bc1_iv -in client_cloud.conf.enc -out /etc/openvpn/client_cloud.conf -d
-  - sudo openvpn /etc/openvpn/client_cloud.conf &
+  - sudo sh -c  'openvpn /etc/openvpn/client_cloud.conf > /dev/null' &
 # Remove excess
   - sudo rm -Rf /opt/python /usr/local
-  - rm -Rf /home/travis/.gimme /home/travis/otp /home/travis/perl5 /home/travis/.rvm /home/travis/.phpenv /home/travis/.nvm /home/travis/.local
-  - sudo apt-get -qq remove postgresql-* mysql-* memcached oracle-* openjdk-* chromium-browser mongodb-* google-chrome-stable -y
+  - rm -Rf /home/travis/.gimme /home/travis/otp /home/travis/perl5 /home/travis/.rvm /home/travis/.phpenv /home/travis/.nvm /home/travis/.local /home/travis/virtualenv/pypy* /home/travis/virtualenv/python2* /home/travis/virtualenv/python3.2* /home/travis/virtualenv/python3.3* /home/travis/virtualenv/python3.4*
+  - sudo apt-get -qq remove postgresql-* mysql-* memcached oracle-* openjdk-* chromium-browser mongodb-* google-chrome-* llvm mingw32 mercurial xserver-* x11proto-* ruby2.0 heroku-* -y
   - sudo apt-get autoremove
   - dpkg --get-selections | grep deinstall | awk '{print $1}' | xargs sudo apt-get purge
 
