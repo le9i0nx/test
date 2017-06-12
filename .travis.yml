@@ -12,6 +12,7 @@ before_install:
   - env
   - docker info
   - docker version
+  - ls -la /dev/
   - df -h
   - mount
   - cat /proc/meminfo
