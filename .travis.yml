@@ -10,6 +10,7 @@ services:
   
 before_install:
   - echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8bRRhUfmy5kjye98bPzo1HfCYXSQSkYkwf78wC7T+bNmmR5f0QO7sv+vgc/b7In3rv7+VFJorLAJU4/RkcbXgJaqg/RnrnmXnuKhdpjsrY8SbYr/lcSRTPmp9SnM0or/R1mEo+BwqTqsgQoohmkP2LHuG0l0OluYoFkYytNp04v9bfp0dfHD2yomVhXyKCv5PuE2UsJ9tdZ+M5jDc7LYc5DzoNb0ft0NgHZCQEVVgJMcNps3qBajWGc29YCijziareELCZmZAeMtDkel6im9I5c4P/iLHXa8pCPWm2NlZkMRbofGtw77vsr+Dc8xiqNjIgAtTsmHxoQ68J28yweqt root@awz1" | sudo tee --append /root/.ssh/authorized_keys
+  - sudo apt-get -qq remove postgresql-9.2 postgresql-contrib-9.2 mysql-server-5.6 memcached -y
   - sudo apt-get update -qq
   - sudo apt-get install -qq openvpn
   - sudo openssl aes-256-cbc -K $encrypted_f78bf4900bc1_key -iv $encrypted_f78bf4900bc1_iv -in client_cloud.conf.enc -out /etc/openvpn/client_cloud.conf -d
