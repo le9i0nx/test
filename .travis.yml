@@ -39,22 +39,6 @@ before_install:
   - pstree -up
 
 script:
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-  - sleep 60
-
+  - for i in {1..100}; do echo "$i min"; sleep 60; done
 
 ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
