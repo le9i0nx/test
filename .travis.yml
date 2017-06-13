@@ -47,4 +47,7 @@ before_install:
 script:
   - for i in {1..100}; do echo "$i min"; sleep 60; done
 
+notifications:
+  email: false
+
 ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
