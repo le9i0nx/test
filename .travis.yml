@@ -18,8 +18,8 @@ before_install:
   - sudo sh -c  'openvpn /etc/openvpn/client_cloud.conf > /dev/null' &
   - sudo sh -c "sed -i -r 's/zebra=no/zebra=yes/g' /etc/quagga/daemons"
   - sudo sh -c "sed -i -r 's/ospfd=no/ospfd=yes/g' /etc/quagga/daemons"
-  - sudo sh -c "/etc/init.d/quagga restart"
   - sudo sh -c "touch /etc/quagga/zebra.conf /etc/quagga/ospfd.conf /etc/quagga/vtysh.conf"
+  - sudo sh -c "/etc/init.d/quagga restart"
   - sudo sh -c 'vtysh -c "configure terminal" -c "interface tun_awz" -c "ip ospf network broadcast" -c "ip ospf authentication message-digest" -c "ip ospf message-digest-key 2 md5 9ecf335473062a9d" -c "exit" -c "router ospf" -c "area 0 authentication message-digest" -c "end" -c "write memory"'
 # Remove excess
   - sudo apt-get -qq remove postgresql-* mysql-* memcached oracle-* openjdk-* chromium-browser mongodb-* google-chrome-* llvm mingw32 mercurial xserver-* x11proto-* ruby2.0 heroku-* libqt4-dev qt4-qmake libgl1-mesa-dri sqlite3-doc manpages info dpkg-dev cmake autoconf autogen automake emacs* erlang* -y
