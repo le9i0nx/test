@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     locale-gen --purge en_US.UTF-8 && \
     echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*  /tmp/*
+    rm -rf /var/lib/apt/lists/*  /tmp/* /var/cache/apt/*
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
