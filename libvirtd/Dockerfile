@@ -61,5 +61,6 @@ RUN sed -i "/Service/a ExecStartPost=\/bin\/chmod 666 /dev/kvm" /usr/lib/systemd
 
 VOLUME ["/sys/fs/cgroup"]
 ENTRYPOINT ["/lib/systemd/systemd"]
-# docker run --rm --privileged --net=host -ti -e 'container=docker' -v /proc/modules:/proc/modules -v /var/lib/libvirt/:/var/lib/libvirt/ -v /sys/fs/cgroup:/sys/fs/cgroup:rw libvirtd
+# docker run --name t0 --rm -e 'container=docker' --privileged --net=host -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro le9i0nx/test:libvirtd
+# docker exec -ti t0 /bin/bash
 
