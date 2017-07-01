@@ -40,8 +40,9 @@ RUN systemctl mask \
     sys-kernel-config.mount \
     sys-kernel-debug.mount \
     display-manager.service \
-    graphical.target
-
+    graphical.target \
+    exim4.service \
+    systemd-tmpfiles-clean.timer
 
 EXPOSE 16509
 
